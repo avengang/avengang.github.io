@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Beantech | 豆科技
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite-url/2017/12/27/前端工程师/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('undefined')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/img/signature/BeanTechSign-white.png');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1></h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by John Doe on
+                            2017-12-27
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Your Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=gbk"></head><body><style>
+          html,body,div,p{margin:0;padding:0}
+          body{font-size:14px;font-family:"microsoft yahei";background-color:#ffffff}
+          table{border-collapse:collapse;border-spacing:0;table-layout:fixed}
+          th,td{font-size:14px;padding:0}
+          a{text-decoration:none}
+          img{border:0 none}
+          .blue{text-decoration:none;color:#3c3d5d}
+          .chead{width:1002px}
+          .chead .logo{width:698px;height:90px}
+          .chead .txt{width:152px;height:90px}
+          .column{width:1002px;line-height:28px;border:1px solid #dedede}
+          .column .hbox{width:185px;height:154px}
+          .column .head{display:block;background-color:#fafafa}
+          .column .box{width:100%;background-color:#ffffff;border-top:2px solid #f2f3f5}
+          .column .box1{width:100%;word-wrap:break-word;color:#ffffff;background-color:#3f4160}
+          .column .box2{width:100%;background-color:#f8f9fa}
+          .column .tba{width:940px;padding:0 30px 15px}
+          .column .tbb{width:940px;padding:0 30px}
+          .column .tb1{width:900px;line-height:28px;color:#333333;word-break:break-all;padding:0 20px}
+          .column .tb2{width:430px;padding:0 20px}
+          .column .tb3{width:900px;padding:15px 20px 15px 0}
+          .column .gray,.column .gray2{color:#999999;word-break:break-all}
+          .column .gray2{color:#666666}
+          .column .plate1,.column .plate2{width:430px;height:54px;font-size:16px;font-weight:bold;color:#818ba3}
+          .column .plate1{width:900px;padding:0 50px}
+          .column .plate1 .f16{font-size:14px;font-weight:normal;color:#333333}
+          .column .plate1 .f12{font-size:12px;font-weight:normal;color:#999999}
+          .column .keys,.column .keys2{width:85px;line-height:28px;color:#666666}
+          .column .keys2{width:110px}
+          .column .txt1,.column .txt2,.column .txt3{width:815px;line-height:28px;color:#333333;word-break:break-all}
+          .column .txt2{width:345px}
+          .column .txt3{width:auto;max-width:815px;font-size:14px;font-weight:bold}
+          .column .txt4{width:305px;color:#ffffff;word-break:break-all}
+          .column .infr{width:767px;color:#ffffff;table-layout:auto}
+          .column .vam,.column .grcha{vertical-align:middle;margin-left:5px}
+          .column .box1 .vam{margin-right:5px;margin-left:0}
+          .column .name{font-size:24px;padding-bottom:18px}
+          .column .icard{color:#a1a3ae;padding-bottom:18px}
+          .column .con{border-top:1px dotted #ddd}
+          .column .pr20{width:225px;padding-right:20px}
+          .column .time{width:120px;line-height:28px;color:#666666;padding-left:20px}
+          .column .rtbox{width:765px;line-height:28px;color:#333333;padding:0 20px 0 15px;word-break:break-all}
+          .column .hai,.column .guan{line-height:18px;font-size:12px;color:#ffffff;vertical-align:text-top;margin-left:5px;padding:1px 3px;background-color:#3cbe7f;border-radius:2px}
+          .column .guan{background-color:#ff9f20}
+          .column .tag{display:inline-block;word-break:break-all;#display:inline;#zoom:1}
+          .column .all{color:#666;padding:10px 20px;background-color:#fafafa}
+          .column .tit{width:900px;height:40px;color:#666666;padding:0 20px;background-color:#f5f5f5}
+          .column .p15{padding:15px 0}
+          .column .p5{display:inline-block;color:#666666;padding:0 5px;#display:inline;#zoom:1}
+          .column .cell .skill{width:165px;text-align:right;padding-right:15px}
+          .column .cell .skbg,.column .cell .skco{display:inline-block;width:245px;height:18px;line-height:18px;font-size:12px;color:#ffffff;vertical-align:top;margin-top:6px;background-color:#dddddd;border-radius:20px;#display:inline;#zoom:1}
+          .column .cell .skco{width:235px;font-style:normal;margin-top:0;padding-left:10px;background-color:#ff9f20;z-index:3}
+          .column .sl .skco{width:173px}
+          .column .lh .skco{width:112px}
+          .column .yb .skco{width:51px}
+          .column .fbox strong{font-size:14px;font-weight:bold}
+          .column .cha{font-size:12px;font-weight:normal;color:#00457d;margin-left:5px}
+          .column .cha:hover{color:#ff6000}
+          .column .email{width:330px}
+
+          .eng td,.eng .txt3,.eng .fbox strong{font-size:13px;font-family:'Arial'}
+          .eng .txt1,.eng .rtbox,.eng .phd{width:775px;font-size:13px;font-family:'Arial';line-height:28px}
+          .eng .txt2{width:305px}
+          .eng .txt4{width:245px}
+          .eng .cell .txt3{width:120px}
+          .eng .time,.eng .keys{width:110px;font-size:13px;text-align:right}
+          .eng .cell .skill{width:130px}
+          .eng .phd{padding-left:145px}
+          .eng .keys{padding-right:15px}
+          .eng .pr20{width:205px}
+          .eng .pr20 .keys{width:100px}
+          .eng .email{width:270px}
+        </style><table cellpadding="0" cellspacing="0" align="center" bgcolor="#fff" class="column"><tbody><tr><td valign="top"><table xmlns="" cellspacing="0" cellpadding="0" border="0" class="box1"><tbody><tr>
+<td class="hbox" align="middle"><img src="http://img01.51jobcdn.com/im/2016/resume/man.png" width="85" height="104" class="head"></td>
+<td><table cellspacing="0" cellpadding="0" border="0" class="infr"><tbody>
+<tr>
+<td colspan="2" class="name">ղ�и�</td>
+<td align="right" class="icard">
+                    ID:91157640</td>
+</tr>
+<tr>
+<td valign="top">
+<img class="vam" src="http://img01.51jobcdn.com/im/2016/resume/y1.png" width="20" height="20">Ŀǰ�����ҹ���</td>
+<td valign="top">
+<img class="vam" src="http://img01.51jobcdn.com/im/2016/resume/y2.png" width="20" height="20">13570829601</td>
+<td valign="top"><table cellspacing="0" cellpadding="0" border="0" class="email"><tbody><tr>
+<td valign="top" width="25"><img class="vam" src="http://img01.51jobcdn.com/im/2016/resume/y3.png" width="20" height="20"></td>
+<td valign="top" class="txt4">544160071@qq.com</td>
+</tr></tbody></table></td>
+</tr>
+<tr><td valign="top" colspan="3"><p><img class="vam" src="http://img01.51jobcdn.com/im/2016/resume/y4.png" width="20" height="20">��<span class="p5">|</span>27 �� (1990/12/26)<span class="p5">|</span>�־�ס����-��ɽ��<span class="p5">|</span>5�깤������
+                    </p></td></tr>
+</tbody></table></td>
+</tr></tbody></table>
+<table xmlns="" cellspacing="0" cellpadding="0" border="0" class="box2"><tbody><tr><td class="tba"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="tb2"><table cellspacing="0" cellpadding="0" border="0">
+<thead style="height:0"><tr>
+<td valign="top" class="keys"></td>
+<td valign="top" class="txt2"></td>
+</tr></thead>
+<tbody>
+<tr><td colspan="2" class="plate2">��������</td></tr>
+<tr>
+<td valign="top" class="keys">ְλ��</td>
+<td valign="top" class="txt2">��Ŀ����</td>
+</tr>
+<tr>
+<td valign="top" class="keys">��˾��</td>
+<td valign="top" class="txt2">�Ϻ���������ҵ������ѯ���޹�˾</td>
+</tr>
+<tr>
+<td valign="top" class="keys">��ҵ��</td>
+<td valign="top" class="txt2">����������</td>
+</tr>
+</tbody>
+</table></td>
+<td valign="top" class="tb2"><table cellspacing="0" cellpadding="0" border="0">
+<thead style="height:0"><tr>
+<td valign="top" class="keys"></td>
+<td valign="top" class="txt2"></td>
+</tr></thead>
+<tbody>
+<tr><td colspan="2" class="plate2">����ѧ��/ѧλ</td></tr>
+<tr>
+<td valign="top" class="keys">רҵ��</td>
+<td valign="top" class="txt2">��������</td>
+</tr>
+<tr>
+<td valign="top" class="keys">ѧУ��</td>
+<td valign="top" class="txt2">�Ĵ�����ѧԺ</td>
+</tr>
+<tr>
+<td valign="top" class="keys">ѧ��/ѧλ��</td>
+<td valign="top" class="txt2">����</td>
+</tr>
+</tbody>
+</table></td>
+</tr></tbody></table></td></tr></tbody></table>
+<table xmlns="" cellspacing="0" cellpadding="0" border="0" class="box"><tbody>
+<tr><td class="plate1">������Ϣ</td></tr>
+<tr><td class="tba"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td class="tb2" valign="top"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">QQ�ţ�
+                                  </td>
+<td valign="top" class="txt2">544160071</td>
+</tr></tbody></table></td>
+<td class="tb2" valign="top"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����/������</td>
+<td valign="top" class="txt2">�ɶ�</td>
+</tr></tbody></table></td>
+</tr>
+<tr>
+<td class="tb2" valign="top"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">���ߣ�</td>
+<td valign="top" class="txt2">170cm</td>
+</tr></tbody></table></td>
+<td class="tb2" valign="top"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����״����</td>
+<td valign="top" class="txt2">�ѻ�</td>
+</tr></tbody></table></td>
+</tr>
+<tr>
+<td class="tb2" valign="top"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">������ò��</td>
+<td valign="top" class="txt2">�й���Ա</td>
+</tr></tbody></table></td>
+<td class="tb2" valign="top">&nbsp;</td>
+</tr>
+</tbody></table></td></tr>
+</tbody></table>
+<table xmlns="" cellspacing="0" cellpadding="0" border="0" class="box"><tbody><tr><td class="plate1">
+              Ŀǰ������
+              <span>&nbsp;20��Ԫ</span><span class="f12">�������������ʡ����������𡢹�Ȩ�����ȣ�</span>
+</td></tr></tbody></table>
+<table xmlns="" cellspacing="0" cellpadding="0" border="0" class="box"><tbody>
+<tr><td class="plate1">��ְ����</td></tr>
+<tr><td class="tba"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0">
+<thead style="height:0"><tr>
+<td valign="top" class="keys"></td>
+<td valign="top" class="txt1"></td>
+</tr></thead>
+<tbody><tr>
+<td valign="top" class="keys">���˱�ǩ��</td>
+<td valign="top" class="txt1"><span class="tag">ǰ�˼ܹ�ʦ</span></td>
+</tr></tbody>
+</table></td></tr>
+<tr>
+<td class="tb2" valign="top"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����н�ʣ�</td>
+<td valign="top" class="txt2">20000-24999
+                                            Ԫ/��
+                                          </td>
+</tr></tbody></table></td>
+<td class="tb2" valign="top"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">�ص㣺</td>
+<td valign="top" class="txt2">
+<span class="tag">�ɶ�&nbsp;&nbsp;</span><span class="tag">����</span>
+</td>
+</tr></tbody></table></td>
+</tr>
+<tr>
+<td class="tb2" valign="top"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">ְ��/ְλ��</td>
+<td valign="top" class="txt2">
+<span class="tag">������������������ʦ&nbsp;&nbsp;</span><span class="tag">��������ʦ</span><span class="tag">&nbsp;&nbsp;Webǰ�˿�������ʦ</span>
+</td>
+</tr></tbody></table></td>
+<td class="tb2" valign="top"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">��ҵ��</td>
+<td valign="top" class="txt2"><span class="tag">����������</span></td>
+</tr></tbody></table></td>
+</tr>
+<tr>
+<td class="tb2" valign="top"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����ʱ�䣺</td>
+<td valign="top" class="txt2">��ʱ</td>
+</tr></tbody></table></td>
+<td class="tb2" valign="top"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">�������ͣ�</td>
+<td valign="top" class="txt2">ȫְ</td>
+</tr></tbody></table></td>
+</tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0">
+<thead style="height:0"><tr>
+<td valign="top" class="keys"></td>
+<td valign="top" class="txt1"></td>
+</tr></thead>
+<tbody><tr>
+<td valign="top" class="keys">�������ۣ�</td>
+<td valign="top" class="txt1">�����󷽣��������ˣ�רҵ���ܻ�����ʵ���������ϣ��ڷܺ�ѧ���߱����õ��ŶӺ������񡢸߶ȵ����θУ����������������Բ�������,��������ҵ���ƶ�Ӧ�ÿͻ��˼ܹ����ƹ������顣�����ƶ�Ӧ�ÿ�Դ����HTML5��Jquery&#x20;Mobile��PhoneGap��Sencha&#x20;Touch��vue,angular���ƶ����ܷ�װ���飬�зḻ��web&#x20;app�������飬��������javaee����,node.js��������������ES6��css3,html5���˽�httpЭ�飬tcp/udp��rpc��Э�飬��ϵͳ�Ż����˽⣬ʱ�̹�עweb&#x20;appǰ�����ؼ�����</td>
+</tr></tbody>
+</table></td></tr>
+</tbody></table></td></tr>
+</tbody></table>
+<table xmlns="" cellspacing="0" cellpadding="0" border="0" class="box"><tbody>
+<tr><td class="plate1">��������</td></tr>
+<tr><td class="tbb"><table cellspacing="0" cellpadding="0" border="0">
+<tr><td class="p15"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td valign="top" class="time">2015/11-����</td>
+<td valign="top" class="rtbox">
+<strong class="txt3">��Ŀ����</strong><span class="p5">|</span><span>�з���</span>
+</td>
+</tr>
+<tr><td class="phd tb1" colspan="2">
+<span>�Ϻ���������ҵ������ѯ���޹�˾</span><span class="gray">&nbsp;[2��1����]
+                    </span>
+</td></tr>
+<tr><td class="phd tb1 gray2" colspan="2">����������<span class="p5">|</span>500-1000��<span class="p5">|</span>����</td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����������</td>
+<td valign="top" class="txt1">1:��Ϊ��ҵ�����ֻ�Ӧ�á�IHR��,��Ҫҵ���ǻ�Ϊ�ڲ�����Ӧ���磺��Ա��Ƹ��������ǩ֤����λ��ѯ����ְ�ʸ���Ӧ�õļܹ�����¼�ϵͳ��������angular1�Զ���ָ����д��<br>2:�����ƶ����洢��������Ƶ�㲥������ͨ����ͼƬ�����������ݿ��ƻ�������Ŀ����Ҫʹ�õ��ļ�����vue2��node.js,webpack,css3,es5,html5.</td>
+</tr></tbody></table></td></tr>
+</tbody></table></td></tr>
+<tr><td class="p15 con"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td valign="top" class="time">2015/6-2015/11</td>
+<td valign="top" class="rtbox">
+<strong class="txt3">��Ŀ����</strong><span class="p5">|</span><span>�ֻ��з�</span>
+</td>
+</tr>
+<tr><td class="phd tb1" colspan="2">
+<span>�����������޹�˾</span><span class="gray">&nbsp;[5����]
+                    </span>
+</td></tr>
+<tr><td class="phd tb1 gray2" colspan="2">����������<span class="p5">|</span>����50��<span class="p5">|</span>��ҵ��˾</td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����������</td>
+<td valign="top" class="txt1">������˾��Ʒ�����⡱���ò�Ʒ�ǽ�����app��ʹ����Ⱥ�㷺���ʺ����а��ý�������Ⱥ��app����Ϊ5����ɫ�����ѣ������������Ųٽ��������ʺͻ�����ÿ���û������Լ����صĹ��ܣ�����Լ�Σ���̬���г̹������������������ɹ����ȣ���Ŀ��ʱ3���£�����Ŀ����ʹ��sencha&#x20;touch&#x20;��ƶ�app�������ܣ���̨ʹ��Node.js���п��ܴ�����벿�ֺ�̨�ӿڱ�д���ڼ䣬�Թ�˾��Ʒ���С����⡱���������ھ�����Ŀ������app���Ʋ��Ҵ�ÿ������ܲ������Ŷ����ɽ���Ȧ�����ס������Ĺ�����ҵ�񡣰��������н���Ȧ���Ų�ԤԼ��˽��ԤԼ���γ̹������ڿν̵̳ȹ���ģ�顣</td>
+</tr></tbody></table></td></tr>
+</tbody></table></td></tr>
+<tr><td class="p15 con"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td valign="top" class="time">2013/7-2015/6</td>
+<td valign="top" class="rtbox">
+<strong class="txt3">��������ʦ</strong><span class="p5">|</span><span>webapp�з���Ŀ��</span>
+</td>
+</tr>
+<tr><td class="phd tb1" colspan="2">
+<span>������ͨ</span><span class="gray">&nbsp;[1��11����]
+                    </span>
+</td></tr>
+<tr><td class="phd tb1 gray2" colspan="2">ͨ��/����/�����豸<span class="p5">|</span>1000-5000��<span class="p5">|</span>���й�˾</td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����������</td>
+<td valign="top" class="txt1">�����й��ƶ��Ŀ���������ҵ�����ƹ��������̴���app������ְ����ʹ��html5��������webapp��������һ������Ŀ�������з�װ���ɿ������ܵĴ���ṩ�����������������쿪���Ŷ����ɹ�˾web&#x20;app��Ʒ�������о�web&#x20;app�������ܲ����Ŷ��ṩ����ָ������һ���о�ǰ�˼������ڼ䣬�������Ż��͵���app�����ؾ��顣���ɵ���Ŀ�У��쵼��ͼϵͳ��Ӧ������ϵͳ���ֻ�������С��ʩ��������Ŀ��Ҫ�Ƿ����ƶ��ն˴�����վ�Ϳ����Լ�����������ҵ����</td>
+</tr></tbody></table></td></tr>
+</tbody></table></td></tr>
+<tr><td class="p15 con"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td valign="top" class="time">2012/12-2013/7</td>
+<td valign="top" class="rtbox">
+<strong class="txt3">java��������ʦ</strong><span class="p5">|</span><span>�з���</span>
+</td>
+</tr>
+<tr><td class="phd tb1" colspan="2">
+<span>�ɶ�������</span><span class="gray">&nbsp;[7����]
+                    </span>
+</td></tr>
+<tr><td class="phd tb1 gray2" colspan="2">����������<span class="p5">|</span>50-150��<span class="p5">|</span>��Ӫ��˾</td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����������</td>
+<td valign="top" class="txt1">������˾������ѯϵͳ�͹���ά������Ҫ����������IM�������Զ�Ӧ�����������л�������ϵͳ�͹�˾��΢�Ź���ƽ̨�Խ��Լ������Ĳ���ǰ��̨��ά����</td>
+</tr></tbody></table></td></tr>
+</tbody></table></td></tr>
+</table></td></tr>
+</tbody></table>
+<table xmlns="" cellspacing="0" cellpadding="0" border="0" class="box"><tbody>
+<tr><td class="plate1">��Ŀ����</td></tr>
+<tr><td class="tba"><table cellspacing="0" cellpadding="0" border="0">
+<tr><td class="p15"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td valign="top" class="time">2017/1-����</td>
+<td valign="top" class="rtbox"><strong>������</strong></td>
+</tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">������˾��</td>
+<td valign="top" class="txt1">�Ϻ���������ҵ������ѯ���޹�˾</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">��Ŀ������</td>
+<td valign="top" class="txt1">һ�������ڰ����Ƶ�ǰ����Ŀ��������ģ���У������洢����Ƶ�㲥�����г�������ͨ�����ƻ��棬�����ݿ�ͼƬ�����ȣ���Ϊvue2���ܵĳ����͸����ܺ������ԣ���������ѡ����Ŀѡ��vue2��Ϊǰ�˿��ܣ�ʹ��vue-router·�ɼ���������bootstrap,element-ui��ui�����Լ�webpack�������ߣ���ѡ�ü��׸�Ч��ͬΪjs�﷨��Node.js�������߼���</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����������</td>
+<td valign="top" class="txt1">����Ŀ�е�����Ŀ��������Ҫ����ǰ�˿��ܴ�Լ����߼��ı�д��ģ�鹦��ʵ�֡�</td>
+</tr></tbody></table></td></tr>
+</tbody></table></td></tr>
+<tr><td class="p15 con"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td valign="top" class="time">2017/1-����</td>
+<td valign="top" class="rtbox"><strong>�˳�����΢����ҳ��Ŀ</strong></td>
+</tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">������˾��</td>
+<td valign="top" class="txt1">�Ϻ���������ҵ������ѯ���޹�˾</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">��Ŀ������</td>
+<td valign="top" class="txt1">p2p��Ŀ����Ŀ����Ͷ���б������˺���ҵ��֤����ȡͶ���б���Ͷ�ʣ����棬�ⶳ�����ֺ�ͼ��ͳ�ƣ�ѡ��ǰ�˳�����Ч��vue2���ܣ�����vue-router������ui����ѡ��bootstrap,ѡ���������õ�ͼ�λ�js��echart��ΪӦ���ṩ�����ȶ���ͳ��ͼ����</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����������</td>
+<td valign="top" class="txt1">����Ŀ�е����з�����ʦ��������Ŀ���ܴ����Ŀ����ʵ�֡�</td>
+</tr></tbody></table></td></tr>
+</tbody></table></td></tr>
+<tr><td class="p15 con"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td valign="top" class="time">2016/1-2017/10</td>
+<td valign="top" class="rtbox"><strong>ygocn</strong></td>
+</tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">������˾��</td>
+<td valign="top" class="txt1">�Ϻ���������ҵ������ѯ���޹�˾</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">��Ŀ������</td>
+<td valign="top" class="txt1">���ڰ棺���������������й������߷������й���ɫ�Ƽ�����Ϊ�������ѿͻ��˺��й��˿ͻ��ˡ�����ģʽ���������ѿͻ��˿�ԤԼʱ����������ͨ������ʽ��ͨ�����ɷ����������໥���ۡ�ѡ���˳����ȶ��ļ���ջ��angular+ionic�����߿���Ч�ʺ���Ŀ�ȶ��ԡ�<br>̩���棺���Ե�̩�����ε��й������ĵ��������룬��ʳ�������Ƽ��ȣ��õ��ļ���ջͬΪ��angular+ionic��</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����������</td>
+<td valign="top" class="txt1">����Ŀ�е�����Ŀ��������Ҫ������Ŀ���ܴ����Ŀ���߼����ĵ���д����Ŀ����ʵ�֡�</td>
+</tr></tbody></table></td></tr>
+</tbody></table></td></tr>
+<tr><td class="p15 con"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td valign="top" class="time">2015/6-2015/12</td>
+<td valign="top" class="rtbox"><strong>����</strong></td>
+</tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">������˾��</td>
+<td valign="top" class="txt1">�����������޹�˾</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">��Ŀ������</td>
+<td valign="top" class="txt1">��Ŀ��Ϊ�����ˣ���ͨ�û��˺ͻ����ˣ���������Ҫ��Ϊ�Ųٽ�������ͨ������������Ҫ��ѧԱ�������γ̰��ţ�����ѵ����Ƶ��ѧԱ���а�ʦ�����۹����Լ�Ԥ�����ܣ��������Թ���Ա���ʹ����棬�����ͻ��˶���������ƽ̨���ܡ�ǰ�˿���ѡ�õ���senchatouch,ui����ѡ�õ���bootstrap����������ѡ�õĵ�ʱ�����ȶ���gulp.</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����������</td>
+<td valign="top" class="txt1">����Ŀ�е�����Ŀ��������Ҫ����ǰ������Ŀ���ܴ�����߼����ĵ��ı�д��</td>
+</tr></tbody></table></td></tr>
+</tbody></table></td></tr>
+<tr><td class="p15 con"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td valign="top" class="time">2015/1-2016/12</td>
+<td valign="top" class="rtbox"><strong>IHR</strong></td>
+</tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">������˾��</td>
+<td valign="top" class="txt1">�Ϻ���������ҵ������ѯ���޹�˾</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">��Ŀ������</td>
+<td valign="top" class="txt1">��Ϊ��ҵ����Ӧ�ã����ɵ���Ŀ��������Ա�Ƽ�����Ա���ƣ�������Ƹ���򿨣�����������ǩ֤��Ա����������ְ�ʸ񣬸�λ��ѯ�ȹ��ܡ�ѡ�ó�����Ч��angular+ionic�ƶ��������ܼ���sass��cssԤ���뼼������������ʹ�õ��������Ƚ���webpack2.</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����������</td>
+<td valign="top" class="txt1">����Ŀ����html5�з�����ʦ����Ҫ������Ŀ���ܴ���ṩ���߼���ʹ���ĵ���</td>
+</tr></tbody></table></td></tr>
+</tbody></table></td></tr>
+<tr><td class="p15 con"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td valign="top" class="time">2014/3-2014/10</td>
+<td valign="top" class="rtbox"><strong>΢�´�</strong></td>
+</tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">������˾��</td>
+<td valign="top" class="txt1">������ͨ</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">��Ŀ������</td>
+<td valign="top" class="txt1">���������ӻ���app������ͨ�����ʱ�䣬�ص�����Ϣ�����ͽӵ��������������ӽӵ������ɵ��������Լ��໥���֡�ʹ�õ��ļ�����sencha&#x20;touch��es5,css3,html5.</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����������</td>
+<td valign="top" class="txt1">����Ŀ�е���ǰ�˿����鳤����Ҫ������Ŀ���ܴ����Ŀ����ʵ�֡�</td>
+</tr></tbody></table></td></tr>
+</tbody></table></td></tr>
+<tr><td class="p15 con"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td valign="top" class="time">2013/12-2015/6</td>
+<td valign="top" class="rtbox"><strong>�ƶ���ά</strong></td>
+</tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">������˾��</td>
+<td valign="top" class="txt1">������ͨ</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">��Ŀ������</td>
+<td valign="top" class="txt1">��Ӧ��ģ���������쵼��ͼ(�ƶ��߲�ͳ���鿴������ͳ�ƺ�ͼ��չʾ����)��Ӧ������(�ṩӦ�����������������˹���)���ֻ�����(���ֹ�����״̬���������ߴ���ά��)��С������(������װ�ͱ��ޣ����߰�װ��ά�������ع���)��ǰ�˿���ѡ��senchatouch,ui����ѡ�õ���bootstrap,���˼ܹ�ѡ�õ���springmvc+ibatis��</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����������</td>
+<td valign="top" class="txt1">����Ŀ�е����з��鳤����Ҫ����ǰ����Ŀ���ܴ����ǰ���˹���ʵ�֡�</td>
+</tr></tbody></table></td></tr>
+</tbody></table></td></tr>
+<tr><td class="p15 con"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td valign="top" class="time">2012/12-2013/10</td>
+<td valign="top" class="rtbox"><strong>΢�Ź��ں�IM</strong></td>
+</tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">������˾��</td>
+<td valign="top" class="txt1">�ɶ�������</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">��Ŀ������</td>
+<td valign="top" class="txt1">������ע��˾΢�Ź��ںţ�����ͨ�������ؼ��ֻ��ߵ����˵������߻����˽������������ݷ����ռ���ʹ�õļ�����html5,css3,javascript,ssh</td>
+</tr></tbody></table></td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">����������</td>
+<td valign="top" class="txt1">����Ŀ�е���������������ʦ����Ҫ����΢�Ź��ں�IM�ĶԽӺ���ҳ������Ӧ��ϵͳ��ҳ����д�ȡ�</td>
+</tr></tbody></table></td></tr>
+</tbody></table></td></tr>
+</table></td></tr>
+</tbody></table>
+<table xmlns="" class="box"><tbody>
+<tr><td class="plate1">��������</td></tr>
+<tr><td class="tba"><table cellspacing="0" cellpadding="0" border="0"><tr><td class="p15"><table cellspacing="0" cellpadding="0" border="0"><tbody>
+<tr>
+<td valign="top" class="time">2009/9-2013/7</td>
+<td valign="top" class="rtbox"><strong>�Ĵ�����ѧԺ</strong></td>
+</tr>
+<tr><td class="tb1" colspan="2">����<span class="p5">|</span>��������</td></tr>
+<tr><td class="tb1" colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td valign="top" class="keys">רҵ������</td>
+<td valign="top" class="txt1">�������̣����������磬���ݿ⣬�㷨��java,&#x20;android��IT����רҵ֪ʶ��</td>
+</tr></tbody></table></td></tr>
+</tbody></table></td></tr></table></td></tr>
+</tbody></table></td></tr></tbody></table></body></html>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/03/18/hexo-theme-beantech/" data-toggle="tooltip" data-placement="top" title="[Hexo] Theme BeanTech">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://beantech.org" target="_blank">Bean Tech</a></li>
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                        <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
+                    
+                        <li><a href="#" target="_blank">It Helps SEO</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "your-disqus-ID";
+    var disqus_identifier = "http://yoursite-url/2017/12/27/前端工程师/";
+    var disqus_url = "http://yoursite-url/2017/12/27/前端工程师/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/YenYuHsuan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/YenYuHsuan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/yu-hsuan-yen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; John Doe 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite-url/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://yoursite-url/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
